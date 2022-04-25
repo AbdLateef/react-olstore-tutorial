@@ -1,10 +1,10 @@
 import React from 'react';
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { Search, ShoppingCartOutlined, Facebook, Instagram, Pinterest, Twitter } from "@material-ui/icons";
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 60px;
+  height: 90px;
 `;
 
 const Wrapper = styled.div`
@@ -48,6 +48,22 @@ const Right = styled.div`
   justify-content: flex-end;
 `;
 
+const SocialContainer = styled.div`
+    display: flex;
+  `;
+  
+  const SocialIcon = styled.div`
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    background-color: #${(props) => props.color};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+  `;
+
 
 const Navbar = () => {
     return (
@@ -63,7 +79,20 @@ const Navbar = () => {
                     <Logo>REACT OLSTORE</Logo>
                 </Center>
                 <Right>
-                    Right
+                  <SocialContainer>
+                    <SocialIcon color="3B5999">
+                      <Facebook />
+                    </SocialIcon>
+                    <SocialIcon color="E4405F">
+                      <Instagram />
+                    </SocialIcon>
+                    <SocialIcon color="55ACEE">
+                      <Twitter />
+                    </SocialIcon>
+                    <SocialIcon color="E60023">
+                      <Pinterest />
+                    </SocialIcon>
+                  </SocialContainer>
                 </Right>
             </Wrapper>
         </Container>
