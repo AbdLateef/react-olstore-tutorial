@@ -1,7 +1,8 @@
 import React from 'react';
 import { Badge } from "@material-ui/core";
-import { Search, ShoppingCartOutlined, Facebook, Instagram, Pinterest, Twitter } from "@material-ui/icons";
+import { Search, ShoppingCartOutlined, ShoppingCart } from "@material-ui/icons";
 import styled from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   height: 90px;
@@ -48,24 +49,17 @@ const Right = styled.div`
   justify-content: flex-end;
 `;
 
-const SocialContainer = styled.div`
-    display: flex;
-  `;
-  
-  const SocialIcon = styled.div`
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    color: white;
-    background-color: #${(props) => props.color};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 20px;
-  `;
+const CartItem = styled.div`
+  position: absolute;
+  color: white;
+  padding: 2px;
+  border-radius: 30%;
+  background-color: red;
+  opacity: 0.8;
+`
 
-
-const Navbar = () => {
+const Navbar = (Props) => {
+    const navigate = useNavigate();
     return (
         <Container>
             <Wrapper>
@@ -76,23 +70,25 @@ const Navbar = () => {
                     </SearchContainer>
                 </Left>
                 <Center>
-                    <Logo>REACT OLSTORE</Logo>
+                    <Link to="/">
+                      <Logo>REACT OLSTORE</Logo>
+                    </Link>
                 </Center>
                 <Right>
-                  <SocialContainer>
-                    <SocialIcon color="3B5999">
-                      <Facebook />
-                    </SocialIcon>
-                    <SocialIcon color="E4405F">
-                      <Instagram />
-                    </SocialIcon>
-                    <SocialIcon color="55ACEE">
-                      <Twitter />
-                    </SocialIcon>
-                    <SocialIcon color="E60023">
-                      <Pinterest />
-                    </SocialIcon>
-                  </SocialContainer>
+                  {Props.Cart === true && (
+                    <CartItem>1</CartItem>
+                  )}
+                  {Props.Cart === true ? (
+                    <Link to={`/checkout`}>
+                      <ShoppingCart
+                        fontSize="large"
+                        style={{ cursor: 'pointer' }}
+                      />
+                    </Link>
+                  ) : (
+                    <ShoppingCart fontSize="large"/>
+                  )}
+                  
                 </Right>
             </Wrapper>
         </Container>

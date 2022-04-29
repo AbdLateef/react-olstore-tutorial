@@ -80,7 +80,6 @@ const Button = styled.button`
 
 const Slider = () => {
     const [slideIndex, setSlideIndex] = useState(0);
-    console.log(slideIndex);
     const handleClick = (direction) => {
         if (direction === "left") {
             setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 1);
