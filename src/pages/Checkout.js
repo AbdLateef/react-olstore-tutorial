@@ -9,7 +9,7 @@ const Checkout = (Props) => {
         <div>
             <Announcement />
             <Navbar Cart={Props.Cart} />
-            <CheckoutForm />
+            <CheckoutForm UpdatedCart={Props.UpdatedCart} />
             <Footer />
         </div>
     )

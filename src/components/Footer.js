@@ -11,6 +11,7 @@ import {
   
   const Container = styled.div`
     display: flex;
+    background-color: #CDE4DB;
   `;
   
   const Left = styled.div`
@@ -67,11 +68,6 @@ import {
       <Container>
         <Left>
           <Logo>REACT OLSTORE</Logo>
-          <Desc>
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don’t look even slightly believable.
-          </Desc>
           <SocialContainer>
             <SocialIcon color="3B5999">
               <Facebook />
@@ -90,15 +86,14 @@ import {
         <Right>
           <Title>Contact</Title>
           <ContactItem>
-            <Room style={{marginRight:"10px"}}/> Street, South Carolina 987654
+            <Room style={{marginRight:"10px"}}/> Street, West Bandung 987654
           </ContactItem>
           <ContactItem>
-            <Phone style={{marginRight:"10px"}}/> +1 123 45 67
+            <Phone style={{marginRight:"10px"}}/> +62 123 45 67
           </ContactItem>
           <ContactItem>
             <MailOutline style={{marginRight:"10px"}} /> email@example.dev
           </ContactItem>
-          <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
         </Right>
       </Container>
     );

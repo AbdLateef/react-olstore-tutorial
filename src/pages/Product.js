@@ -152,22 +152,27 @@ export const Product = (Props) => {
                 ) : (
                   <Remove style={{ color: '#ccc' }} />
                 )}
-                  <Amount>{amount}</Amount>
+                  <Amount>{productData?.stock < 1 ? 0 : amount}</Amount>
                 {amount < productData?.stock ? (
                   <Add style={{ cursor: 'pointer' }} onClick={handleAmount} />
                 ) : (
                   <Add style={{ color: '#ccc' }} />
                 )}
               </AmountContainer>
-              <Button
-                onClick={() => { 
-                  Props.UpdatedCart(true);
-                  localStorage.setItem("cart", JSON.stringify({
-                    id: productData.id,
-                    amount: amount
-                  }));
-                }}
-              >ADD TO CART</Button>
+              {productData?.stock > 1 && (
+                <Button
+                  onClick={() => { 
+                    Props.UpdatedCart(true);
+                    localStorage.setItem("cart", JSON.stringify({
+                      id: productData.id,
+                      amount: amount
+                    }));
+                  }}
+                >
+                  ADD TO CART
+                </Button>
+              )}
+              
             </AddContainer>
           </InfoContainer>
         </Wrapper>

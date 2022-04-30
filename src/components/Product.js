@@ -72,9 +72,6 @@ import styled from "styled-components";
         <Circle />
         <Image src={item.image_url} />
         <Info>
-          <Icon>
-            <ShoppingCartOutlined />
-          </Icon>
           <Link to={`/product/${item.id}`}>
             <Icon>
               <SearchOutlined />
